@@ -5,8 +5,13 @@ const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const SFTP_PASSWORD = process.env.SFTP_PASSWORD;
 
+console.log("ENV CHECK:");
+console.log("  SUPABASE_URL:", SUPABASE_URL ? "SET (" + SUPABASE_URL.length + " chars)" : "MISSING");
+console.log("  SUPABASE_SERVICE_ROLE_KEY:", SUPABASE_SERVICE_ROLE_KEY ? "SET (" + SUPABASE_SERVICE_ROLE_KEY.length + " chars)" : "MISSING");
+console.log("  SFTP_PASSWORD:", SFTP_PASSWORD ? "SET (" + SFTP_PASSWORD.length + " chars)" : "MISSING");
+
 if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY || !SFTP_PASSWORD) {
-  console.error("Missing required env vars");
+  console.error("Missing required env vars - exiting");
   process.exit(1);
 }
 
