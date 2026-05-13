@@ -1,6 +1,6 @@
-FROM node:20-alpine
+FROM node:20-slim
 WORKDIR /app
-COPY package.json ./
-RUN npm install --production
-COPY index.js ./
+COPY package*.json ./
+RUN npm ci --omit=dev
+COPY index.js .
 CMD ["node", "index.js"]
